@@ -1,23 +1,34 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {useSelector, useDispatch} from 'react-redux'
 
-function App() {
+import CustomCSVReader from './components/CustomCSVReader';
+import CustomTable from './components/CustomTable';
+import {importCsv} from './store/actions/csvAction';
+
+const App = () => {
+  const availableCsv = useSelector(state => state.csvItemsList.csvItemsList)
+
+  const dispatch = useDispatch();
+
+  const handleOnDrop = (data) => {
+    console.log('---------------------------')
+    console.log(data)
+    dispatch(importCsv(data));
+    console.log('---------------------------')
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Csv Processing EDENRED.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={logo} className="App-logo" alt="logo" />
+        
+        <CustomCSVReader handleOnDrop={handleOnDrop} />
+        <CustomTable />
       </header>
     </div>
   );
