@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 
 import CustomCSVReader from './components/CustomCSVReader';
 import CustomTable from './components/CustomTable';
-import {importCsv} from './store/actions/csvAction';
+import {importCsv, createIdentityDocument} from './store/actions/csvAction';
 
 const App = () => {
   const availableCsv = useSelector(state => state.csvItemsList.csvItemsList)
@@ -17,6 +17,10 @@ const App = () => {
     console.log(data)
     dispatch(importCsv(data));
     console.log('---------------------------')
+  };
+
+  const handleCreateCsvDocument = (data) => {
+    dispatch(createIdentityDocument(data));
   }
 
   return (
@@ -28,7 +32,7 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
         
         <CustomCSVReader handleOnDrop={handleOnDrop} />
-        <CustomTable />
+        <CustomTable handleCreateCsvDocument={handleCreateCsvDocument} />
       </header>
     </div>
   );

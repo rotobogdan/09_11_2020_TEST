@@ -1,4 +1,4 @@
-import {IMPORT_CSV} from '../actions/types';
+import { IMPORT_CSV, CREATE_CSV, UPDATE_CSV, DELETE_CSV } from '../actions/types';
 
 const initialState = {
   csvItemsList: [],
@@ -10,6 +10,11 @@ const csvReducer = (state = initialState, action) => {
       return {
         csvItemsList: action.csvItemsList,
       };
+    case CREATE_CSV:
+      return {
+        ...state,
+        csvItemsList: state.csvItemsList.concat(action.newIdentityDocument),
+      }
   }
 
   return state;

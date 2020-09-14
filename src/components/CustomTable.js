@@ -1,6 +1,5 @@
 import React from 'react';
 import MaterialTable from 'material-table';
-import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import Search from "@material-ui/icons/Search";
 import SaveAlt from "@material-ui/icons/SaveAlt";
@@ -17,7 +16,7 @@ import Clear from "@material-ui/icons/Clear";
 import DeleteOutline from "@material-ui/icons/DeleteOutline";
 import Edit from "@material-ui/icons/Edit";
 
-export default function MaterialTableDemo() {
+const CustomTable = props => {
   const [state, setState] = React.useState({
     columns: [
       { title: 'BIB', field: 'bib', type: 'numeric' },
@@ -32,6 +31,10 @@ export default function MaterialTableDemo() {
       { bib: '123', firstName: 'John', lastname: 'Doe', gender: 1, race: 1, category: 1, registrationStatus: 1},
     ],
   });
+
+  const addIdentityCard = (data) => {
+    this.props.handleCreateCsvDocument(data);
+  }
 
   return (
     <MaterialTable
@@ -96,3 +99,5 @@ export default function MaterialTableDemo() {
     />
   );
 }
+
+export default CustomTable;
