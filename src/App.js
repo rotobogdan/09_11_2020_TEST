@@ -6,6 +6,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import CustomCSVReader from './components/CustomCSVReader';
 import CustomTable from './components/CustomTable';
 import CustomBarChart from './components/CustomBarChart';
+import CustomCSVDownloader from './components/CustomCSVDownloader';
 import {importCsv, createIdentityDocument} from './store/actions/csvAction';
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
         
         <CustomCSVReader handleOnDrop={handleOnDrop} />
+        <CustomCSVDownloader />
         <CustomTable handleCreateCsvDocument={handleCreateCsvDocument} />
         <CustomBarChart />
       </header>

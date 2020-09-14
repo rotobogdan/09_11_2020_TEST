@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "material-table": "^1.69.0",
     "react": "^16.13.1",
+    "react-csv-downloader": "^2.0.2",
     "react-dom": "^16.13.1",
     "react-google-charts": "^3.0.15",
     "react-papaparse": "^3.8.0",
